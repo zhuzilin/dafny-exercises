@@ -47,6 +47,7 @@ method Testing() {
   var num_length1 := RemoveDuplicates(nums1);
   assert forall i, j | 0 <= i < j < num_length1 :: nums1[i] != nums1[j];
   assert num_length1 <= nums1.Length;
+  print "nums1: ", nums1[..], ", num_length1: ", num_length1, "\n";
 
   var nums2 := new int[10];
   nums2[0] := 0;
@@ -62,4 +63,9 @@ method Testing() {
   var num_length2 := RemoveDuplicates(nums2);
   assert forall i, j | 0 <= i < j < num_length1 :: nums1[i] != nums1[j];
   assert num_length2 <= nums2.Length;
+  print "nums2: ", nums2[..], ", num_length2: ", num_length2, "\n";
+}
+
+method Main() {
+  Testing();
 }

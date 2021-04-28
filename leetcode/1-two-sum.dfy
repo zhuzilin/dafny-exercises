@@ -30,7 +30,7 @@ method TwoSum(nums: seq<int>, target: int) returns (res: seq<int>)
     var val := target - nums[i];
     if val in m {
       var j := m[val];
-      return [i, j];
+      return [j, i];
     }
     m := m[nums[i] := i];
     i := i + 1;
@@ -43,16 +43,23 @@ method Testing() {
   assert nums1[0] + nums1[1] == target1;
   var res1 := TwoSum(nums1, target1);
   assert nums1[res1[0]] + nums1[res1[1]] == target1;
+  print "res1: ", res1, "\n";
 
   var nums2 := [3,2,4];
   var target2 := 6;
   assert nums2[1] + nums2[2] == target2;
   var res2 := TwoSum(nums2, target2);
   assert nums2[res2[0]] + nums2[res2[1]] == target2;
+  print "res2: ", res2, "\n";
 
   var nums3 := [3,3];
   var target3 := 6;
   assert nums3[0] + nums3[1] == target3;
   var res3 := TwoSum(nums3, target3);
   assert nums3[res3[0]] + nums3[res3[1]] == target3;
+  print "res3: ", res3, "\n";
+}
+
+method Main() {
+  Testing();
 }
